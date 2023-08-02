@@ -2,9 +2,15 @@ package datastructures;
 
 import datastructures.trees.Tree;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args){
-        Tree tree = new Tree();
-        System.out.println(tree.numTrees(5));
+        ArrayList<ArrayList<Integer>> adj= new ArrayList<>();
+        adj.add(new ArrayList<Integer>(2));
+        adj.add(new ArrayList<Integer>(5));
+
     }
 }

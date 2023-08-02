@@ -1,6 +1,40 @@
 package datastructures.trees;
 
+
+import java.util.List;
+
+import static javax.swing.Spring.width;
+
+/*
+* this class is contains core concept's of the tree
+* */
 public class Tree {
+
+
+    /*
+    * diamiter of tree
+    * */
+
+    int diameter(Node root) {
+        return diameter(root,0);
+    }
+
+    int diameter(Node root,int height) {
+        int left=0;
+        int right=0;
+        if(root == null){
+            height=0;
+            return 0;
+        }
+        else{
+            int leftd=diameter(root.leftNode,left);
+            int rightd=diameter(root.rightNode,right);
+            height=Math.max(left,right)+1;
+            return Math.max(left+right+1,Math.max(leftd,rightd));
+
+        }
+    }
+
 
     /*
     * binery tree traversal is used vist all nodes in tree there are different flavour to travel through nodes
@@ -33,6 +67,21 @@ public class Tree {
             postorder(root.leftNode);
             postorder(root.rightNode);
             System.out.println(root.data);
+        }
+    }
+
+    /*
+    * level order traversal of binary tree
+    * */
+
+
+    /*
+    * height of binery tree
+    * */
+    public int height(Node root) {
+        if(root==null) return 0;
+        else{
+            return 1+Math.max(height(root.leftNode),height(root.rightNode));
         }
     }
 
@@ -76,5 +125,6 @@ public class Tree {
             return dp[n]=sum;
         }
     }
+
 
 }
